@@ -9,7 +9,7 @@ namespace MyApp
         {
             Brugermenu brugermenu = new Brugermenu();
 
-            brugermenu.DisplayUserMenu();
+            brugermenu.OperationManager();
 
         }
     }

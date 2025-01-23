@@ -7,5 +7,6 @@ namespace PokemonApp.Interfaces;
 
 public interface IBrugerLogin
 {
+    public void CheckLoginInfo(){}
     public bool CheckIfUserExist() { return true; }
 }

@@ -10,6 +10,7 @@ public interface ICRUDPokémon
     public void TilføjPokémon(){}
     public void RedigérPokémon(){}
     public void SletPokémon(){}
-    public void VisningOgSøgning(){}
+    public void VisingAfPokémon(){}
+    public void SøgningAfPokémon(){}
 
 }
