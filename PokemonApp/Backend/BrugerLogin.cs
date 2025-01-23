@@ -5,11 +5,8 @@ using System.Threading.Tasks;
 
 namespace PokemonApp.Backend;
 
-public class PokedexManager
+public class BrugerLogin
 {
-    
-
-
 
 
 }
