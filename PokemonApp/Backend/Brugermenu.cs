@@ -77,7 +77,7 @@ namespace PokemonApp.Backend
                     case "1": pokedexManager.TilføjPokémon(); Console.WriteLine("Oprettelse af Pokémon"); break;
                     case "2": pokedexManager.RedigePokémon(); Console.WriteLine("Redigering af Pokémon"); break;
                     case "3": pokedexManager.SletPokémon(); Console.WriteLine("Sletting af Pokémon"); break;
-                    case "4": pokedexManager.VisingAfPokémon(); Console.WriteLine("Vising af Pokémons"); break;
+                    case "4": pokedexManager.GetAllPokémonFromCSV("Pokémon.csv"); Console.WriteLine("Vising af Pokémons"); break;
                     case "5": pokedexManager.SøgningAfPokémon(); Console.WriteLine("Søgning af Pokémon"); break;
                     case "6": brugermenu.OperationManager(); Console.WriteLine("Tilbage til Startmenu"); break;
                     case "7": Environment.Exit(0); break;

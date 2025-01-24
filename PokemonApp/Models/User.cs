@@ -11,10 +11,12 @@ public class User
     public static int  NextId = 1;
     public string Navn { get; set; }
     public string Adgangskode { get; set; }
+    public string Salt { get; set; }
 
-    public User(string navn, string adgangskode){
+    public User(string navn, string adgangskode, string salt){
         Id = NextId++;
         Navn = navn;
         Adgangskode = adgangskode;
+        Salt = salt;
     }
 }

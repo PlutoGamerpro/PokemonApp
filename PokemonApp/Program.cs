@@ -7,13 +7,12 @@ namespace PokemonApp.Models
     {
         static void Main(string[] args)
         {
-            /*
+            
              Brugermenu brugermenu = new Brugermenu();
              brugermenu.OperationManager();
-*/
 
-            PokedexManager pokedexManager = new PokedexManager();
-            pokedexManager.RedigePokémon();
+
+           
         }
     }
 }

@@ -8,7 +8,7 @@ namespace PokemonApp.Backend;
 
 public class BrugerOprettelse
 {
-    public void CreateUser() /// returing af object not worth it...
+    public void CreateUser()
     {
         Console.Write("Input BrugerNavn: ");
         string BrugerNavn = Console.ReadLine();
@@ -16,13 +16,15 @@ public class BrugerOprettelse
         Console.Write("Input Adgangskode: ");
         string Adgangskode = Console.ReadLine();
 
-        User user = new User(BrugerNavn, Adgangskode);
+        // Hash adgangskoden og få salt
+        var (hashedPassword, salt) = PasswordHasher.HashPassword(Adgangskode);
+
+        // Opret user objekt med den hashede adgangskode og salt
+        User user = new User(BrugerNavn, hashedPassword, salt);
         Console.WriteLine("BrugerOprettet");
 
+        // Tilføj bruger til CSV fil
         AddToCSVFile addToCSVFile = new AddToCSVFile();
         addToCSVFile.AddUserToCSV("Users.csv", user);
-
-       
-
     }
 }
