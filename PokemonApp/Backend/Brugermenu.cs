@@ -7,12 +7,13 @@ namespace PokemonApp.Backend
     {
         BrugerLogin brugerLogin = new BrugerLogin();
         BrugerOprettelse brugerOprettelse = new BrugerOprettelse();
+        PokedexManager pokedexManager = new PokedexManager();
         // Class content goes here if needed.
         public void DisplayUserMenu()
         {
             // if user don't exist then have to create
             Console.WriteLine("Menu Pokemon Userapp");
-            Console.WriteLine("1. OpretUser");
+            Console.WriteLine("1. Opret bruger");
             Console.WriteLine("2. Log ind");
             Console.WriteLine("3. Se alle Pokémon");
             Console.WriteLine("4. Søg efter Pokémon");
@@ -23,7 +24,7 @@ namespace PokemonApp.Backend
         }
         public void OperationManager()
         {
-
+            
             while (true)
             { // program on loop-- never need to be false... 
                 DisplayUserMenu();
@@ -54,8 +55,12 @@ namespace PokemonApp.Backend
 
             Console.Write("Vælg Mulighed 1,2,3,4,5 : ");
         }
-}
 
+
+
+
+
+        
 
         public void PokéMonOperations()
         { // add functions from pokémonmanger to each case so the becomes better ......
@@ -65,15 +70,18 @@ namespace PokemonApp.Backend
                 string BrugerInput = Console.ReadLine();
                 switch (BrugerInput)
                 {
-                    case "1": break;
-                    case "2": break;
-                    case "3": break;
-                    case "4": break;
-                    case "5": break;
-                    default: Console.WriteLine("None of the options above was selected"): break;
+                    case "1": pokedexManager.TilføjPokémon(); Console.WriteLine("Oprettelse af Pokémon"); break;
+                    case "2": pokedexManager.RedigePokémon(); Console.WriteLine("Redigering af Pokémon"); break;
+                    case "3": pokedexManager.SletPokémon(); Console.WriteLine("Sletting af Pokémon"); break;
+                    case "4": pokedexManager.VisingAfPokémon(); Console.WriteLine("Vising af Pokémons"); break;
+                    case "5": pokedexManager.SøgningAfPokémon(); Console.WriteLine("Søgning af Pokémon"); break;
+                    default: Console.WriteLine("None of the options above was selected"); break;
                 }
             }
         }
+        
 
     }
+
+}
 

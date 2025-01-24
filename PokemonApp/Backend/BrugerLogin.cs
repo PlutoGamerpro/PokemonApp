@@ -8,7 +8,13 @@ namespace PokemonApp.Backend;
 
 public class BrugerLogin : IBrugerLogin
 {
-    public void CheckLoginInfo() {
+
+
+
+    // Brugermenu brugermenu = new Brugermenu();
+
+    public void CheckLoginInfo()
+    {
         Console.WriteLine("Log in processe");
 
         Console.Write("Input Brugernavn: ");
@@ -17,24 +23,44 @@ public class BrugerLogin : IBrugerLogin
         Console.Write("Input Adgangskode: ");
         string DitPassword = Console.ReadLine();
 
+
         CheckIfUserExist(DitBrugerNavn, DitPassword);
 
-    }
-    // This is not finished still need to be finished. 
-    public bool CheckIfUserExist(string DitBrugerNavn, string DitPassword)
-     {
-        // filen csv skal læses for at kunne lave denne logic
-        if (DitBrugerNavn.Length == 5 && DitPassword.Length == 5)
-        {
-            return true;
-        }
-        else
-        { 
-            return false; 
-        }
-       
-   
-        
 
-     }
+    }
+
+    public void CheckIfUserExist(string brugernavn, string password)
+    {
+        string filePath = Path.Combine(Directory.GetCurrentDirectory(), "CSV", "users.csv");  // Assuming the CSV file stores user data
+
+        if (!File.Exists(filePath))
+        {
+            Console.WriteLine("User file does not exist.");
+            return;
+        }
+
+        bool userFound = false;
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] userDetails = line.Split(',');
+
+                // Directly check if the username and password match
+                if (userDetails.Length >= 3 && userDetails[1] == brugernavn && userDetails[2] == password)
+                {
+                    userFound = true;
+                    Console.WriteLine("Login successful!");
+                    break;
+                }
+            }
+        }
+
+        if (!userFound)
+        {
+            Console.WriteLine("Invalid username or password.");
+        }
+    }
 }
+

@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PokemonApp.Models;
 
 namespace PokemonApp.Backend;
 
 public class PokedexManager : ICRUDPokémon
 {
+    private bool _ContiuneProgram = false;
 
     public void TilføjPokémon()
     {
@@ -18,8 +20,26 @@ public class PokedexManager : ICRUDPokémon
         Console.Write("Input Pokémon Type (Ild,Vand,Elektrik, osv): ");
         string AngivPokémonType = Console.ReadLine();
 
-        Console.Write("Input StyrkeNiveau ( 1-10 ): ");
-        string AngivPókemonStrykeNiveau = Console.ReadLine();
+
+        while (!_ContiuneProgram)
+        {
+
+            Console.Write("Input StyrkeNiveau ( 1-10 ): ");
+            string PókemonStrykeNiveau = Console.ReadLine();
+
+            if (double.TryParse(PókemonStrykeNiveau, out double AngivetPokémonstrykeNiveau))
+            {
+                Console.WriteLine("Opretter Pokemon");
+                Pokemon pokemon = new Pokemon(AngivPokémonNavn, AngivPokémonType, AngivetPokémonstrykeNiveau);
+                _ContiuneProgram = true;
+            }
+            else
+            {
+                Console.WriteLine("StrykeNiveauet du har angivet er ikke validt.");
+                _ContiuneProgram = false;
+            }
+
+        }
 
     }
     public void RedigePokémon()
@@ -39,11 +59,12 @@ public class PokedexManager : ICRUDPokémon
         Console.WriteLine("Visning af (Pokémon)");
 
     }
-    public void SøgningAfPokémon() {
+    public void SøgningAfPokémon()
+    {
         Console.WriteLine("Søgning af (Pokëmon)");
     }
 
-   
+}
 
 
 

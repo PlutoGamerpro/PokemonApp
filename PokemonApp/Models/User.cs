@@ -12,7 +12,9 @@ public class User
     public string Navn { get; set; }
     public string Adgangskode { get; set; }
 
-    public User(string X, string X1){
+    public User(string navn, string adgangskode){
         Id = NextId++;
+        Navn = navn;
+        Adgangskode = adgangskode;
     }
 }
