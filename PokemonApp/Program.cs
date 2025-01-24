@@ -7,27 +7,13 @@ namespace PokemonApp.Models
     {
         static void Main(string[] args)
         {
-            AddToCSVFile addToCSVFile = new AddToCSVFile();
-            BrugerOprettelse brugerOprettelse = new BrugerOprettelse();
-
-           // brugerOprettelse.CreateUser();
-            BrugerLogin brugerLogin = new BrugerLogin();
-
-            brugerLogin.CheckLoginInfo();
-
-            /* Brugermenu brugermenu = new Brugermenu();
-             brugermenu.OperationManager();
-            */
-
-            // example on how its works
             /*
-            User newUser = new User("John Doe", "password123");// id is not included 
-            addToCSVFile.AddUserToCSV("Users.csv", "John Doe", newUser);
+             Brugermenu brugermenu = new Brugermenu();
+             brugermenu.OperationManager();
+*/
 
-
-            Pokemon pikachu = new Pokemon("Pikachu", "Electric", 10);
-            addToCSVFile.AddPokémonToCSV("Pokemons.csv", pikachu);
-            */
+            PokedexManager pokedexManager = new PokedexManager();
+            pokedexManager.RedigePokémon();
         }
     }
 }

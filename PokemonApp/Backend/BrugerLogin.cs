@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Threading.Tasks;
 using PokemonApp.Interfaces;
@@ -8,8 +9,6 @@ namespace PokemonApp.Backend;
 
 public class BrugerLogin : IBrugerLogin
 {
-
-
 
     // Brugermenu brugermenu = new Brugermenu();
 
@@ -31,6 +30,7 @@ public class BrugerLogin : IBrugerLogin
 
     public void CheckIfUserExist(string brugernavn, string password)
     {
+        Brugermenu brugermenu = new Brugermenu();
         string filePath = Path.Combine(Directory.GetCurrentDirectory(), "CSV", "users.csv");  // Assuming the CSV file stores user data
 
         if (!File.Exists(filePath))
@@ -52,6 +52,7 @@ public class BrugerLogin : IBrugerLogin
                 {
                     userFound = true;
                     Console.WriteLine("Login successful!");
+                    brugermenu.PokéMonOperations();
                     break;
                 }
             }

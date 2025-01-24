@@ -52,8 +52,10 @@ namespace PokemonApp.Backend
             Console.WriteLine("3: Sletting af Pokémon");
             Console.WriteLine("4: VisingAfPokémon");
             Console.WriteLine("5: SøgningAfPokémon");
+            Console.WriteLine("6: Tilbage til Startmenu");
+            Console.WriteLine("7: Afslut programmet");
 
-            Console.Write("Vælg Mulighed 1,2,3,4,5 : ");
+            Console.Write("Vælg Mulighed 1,2,3,4,5,6,7 : ");
         }
 
 
@@ -64,6 +66,8 @@ namespace PokemonApp.Backend
 
         public void PokéMonOperations()
         { // add functions from pokémonmanger to each case so the becomes better ......
+            Brugermenu brugermenu = new Brugermenu();
+
             while (true)
             {
                 DisplayPokémonMuligheder();
@@ -75,6 +79,8 @@ namespace PokemonApp.Backend
                     case "3": pokedexManager.SletPokémon(); Console.WriteLine("Sletting af Pokémon"); break;
                     case "4": pokedexManager.VisingAfPokémon(); Console.WriteLine("Vising af Pokémons"); break;
                     case "5": pokedexManager.SøgningAfPokémon(); Console.WriteLine("Søgning af Pokémon"); break;
+                    case "6": brugermenu.OperationManager(); Console.WriteLine("Tilbage til Startmenu"); break;
+                    case "7": Environment.Exit(0); break;
                     default: Console.WriteLine("None of the options above was selected"); break;
                 }
             }

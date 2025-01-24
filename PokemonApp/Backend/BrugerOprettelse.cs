@@ -22,7 +22,7 @@ public class BrugerOprettelse
         AddToCSVFile addToCSVFile = new AddToCSVFile();
         addToCSVFile.AddUserToCSV("Users.csv", user);
 
-        Console.WriteLine("Userscreated");
+       
 
     }
 }
